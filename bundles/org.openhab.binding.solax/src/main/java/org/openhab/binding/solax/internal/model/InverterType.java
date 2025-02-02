@@ -24,12 +24,14 @@ import org.openhab.binding.solax.internal.model.local.inverters.X1BoostAirMiniDa
 import org.openhab.binding.solax.internal.model.local.inverters.X1HybridG4DataParser;
 import org.openhab.binding.solax.internal.model.local.inverters.X3HybridG4DataParser;
 import org.openhab.binding.solax.internal.model.local.inverters.X3MicOrProG2DataParser;
+import org.openhab.binding.solax.internal.model.local.inverters.X3UltraDataParser;
 
 /**
  * The {@link InverterType} class is enum representing the different inverter types with a simple logic to convert from
  * int(coming from the JSON) to a more meaningful enum value.
  *
  * @author Konstantin Polihronov - Initial contribution
+ * @author Vaclav Cejka - added X3 Ultra inverter support
  */
 @NonNullByDefault
 public enum InverterType {
@@ -57,6 +59,7 @@ public enum InverterType {
     A1_SMT_G2(21),
     X3_FTH(22),
     X3_MGA_G2(23),
+    X3_ULTRA(25, new X3UltraDataParser()),
     UNKNOWN(-1);
 
     private int typeIndex;
